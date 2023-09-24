@@ -1,0 +1,18 @@
+@CHARSET "ISO-8859-1";
+
+#contact_me_action {
+	padding-left: 20px;
+	padding-top: 15px;
+	color: #f09620;
+	font-weight: bold;
+}
+
+#contact_me_action #objet {
+	font-style: italic;
+	color: blue;
+}
+
+#contact_me_action a:LINK, contact_me_action a:VISITED {
+	font-weight: normal;
+	text-decoration: underline;
+}

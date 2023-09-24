@@ -1,0 +1,14 @@
+; db.172
+
+$TTL    604800
+@       IN      SOA     ns.vince.lan. admin.vince.lan. (
+                              5         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.
+10      IN      PTR     ns.vince.lan.
+155.25.31.172.in-addr.arpa.   IN      PTR     test.vince.lan.
+156.25.31.172.in-addr.arpa.   IN      PTR     test2.vince.lan.

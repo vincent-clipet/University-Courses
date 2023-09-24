@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
+
+ 
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+	<link rel="stylesheet" type="text/css" href="TP3_fichiers/style.css">	
+	<link href="http://www.lgi2a.univ-artois.fr/%7Emercier/teaching/web/img/rtb.ico" rel="shortcut icon" type="image/x-icon">
+	<title>IC3 - Applications Web Dynamiques - TP3</title>
+</head><body>
+
+<div id="page">
+<div id="contenu">
+
+<h1 class="titre"> TP 3 : introduction au langage PHP </h1>
+<h1 class="soustitre"> Durée : 4h</h1>
+
+
+
+<h2> Objectif </h2>
+
+<ul>
+<li> Savoir développer des pages web dynamiques simples avec le langage <strong>PHP</strong>.</li>
+<li> Savoir gérer les formulaires avec le langage <strong>PHP</strong>.</li>
+</ul>
+
+<h2> Environnement de travail </h2>
+
+<ul>
+ <li> Linux (Ubuntu) ou votre machine personnelle </li>
+ <li> Plate-forme <strong>Netbeans</strong> (ou Eclipse).</li>
+ <li> Vous pouvez travailler directement sur vos machines avec un Netbeans et un serveur web (par exemple <a href="http://bitnami.org/">BitNami</a>,
+ prendre celui avec PostgreSQL pour IC5 <a href="http://bitnami.org/stack/wapp">BitNami WAPP stack</a>).</li>
+</ul>
+
+<p class="noteimportant"> 
+À la fin du TP, vous devez déposer une archive de vos travaux sur la plate-forme moodle.<br>
+Pour nommer votre archive, respecter le standard : Groupe_Nom_TP3_IC3.[zip|tar.gz]
+</p>
+ 
+<h2> Organisation </h2>
+
+<ul>
+ <li> Firefox étant équipé de l'add-on <strong>Web Developer</strong>, ouvrir Netbeans et créer un nouveau projet PHP nommé <strong>TP3</strong>
+ dans le répertoire <strong>/home/votre-login/public_html/TP3/</strong>.</li>
+ </ul>
+
+<p class="notetip"> N'oubliez pas toute l'aide que vous pouvez obtenir ici : <a href="http://www.php.net/">http://www.php.net/</a></p>
+ 
+<h2> Une première page PHP </h2>
+
+<ul>
+<li>Créer dans votre projet une nouvelle page web <strong>page1.php</strong>.</li>
+<li>Ajouter un script PHP à votre page permettant d'afficher par exemple ``Bonjour tout le monde !''.</li>
+<li>Lancer l'interprétation de ce code et expliquer précisément à l'enseignant vous encadrant ce qui se passe exactement.
+</li></ul>
+
+<p> Pour rappel, comme vous avez créé votre projet dans le répertoire <strong>/home/votre-login/public_html/TP3/</strong>, vos pages contenues dans le
+ répertoire <strong>/home/votre-login/public_html/TP3/</strong> seront visibles via l'url : <strong>http://iut-rt/~votre-login/TP3/.</strong>
+ 
+</p><p>Votre code PHP est interprété par le serveur <strong>iut-rt</strong>.</p>
+
+<p>Sur vos machines persos prendre un serveur web WAPP ou LAPP Windows/Linux Apache PHP PostgreSQL (par exemple <a href="http://bitnami.org/">BitNami</a>,
+ prendre celui avec PostgreSQL pour IC5 <a href="http://bitnami.org/stack/wapp">BitNami WAPP stack</a>).</p>
+
+<p> On se propose maintenant d'interpréter ce code à la main en utilisant un interpréteur PHP en ligne commande.</p>
+
+<ul>
+<li> Ouvrez un termninal et placez vous dans le répertoire contenant votre page <strong>page1.php</strong>.</li>
+<li> Exécutez la commande <strong>php page1.php</strong> dans votre terminal. Qu'observez-vous ?</li>
+<li> Redirigez ce code dans une page <strong>page1_interpretee.html</strong> et visualisez sous firefox le résultat obtenu.</li>
+</ul>
+
+<p> Nous allons maintenant tester l'ajout de la date et de l'heure dans un paragraphe en utilisant
+ la fonction <strong>strftime()</strong> comme vu en cours.</p>
+
+<ul>
+<li> Modifier votre page en insérant le code suivant dans le corps de votre page.</li>
+</ul>
+
+<pre><xmp> 
+&lt;?php
+   @setlocale('LC_TIME', 'fr_FR.utf8','fra');
+   echo "&lt;p&gt; Au moment de l'exécution de ce script PHP, nous sommes le ".strftime('%A %d %B %Y').".&lt;/p&gt;";
+?&gt;
+</xmp> </pre>
+
+<ul>
+<li> Tester votre page et vérifier l'affichage de la date en français (si ce n'est pas le cas corriger le code).</li>
+<li> Compléter ce code pour afficher également les heures, minutes et secondes.</li>
+<li> Ajouter dans votre code l'affichage d'un paragraphe affichant "Bonne journée !", "Bon après midi !", "Bonne soirée !",
+ ou "Bonne nuit." en fonction de cette heure.</li>
+</ul>
+
+<p class="notetip"> Un début d'aide (où la variable $h aura été correctement initialisée) :
+</p><pre><xmp>
+if($h &lt; 12){
+   	echo "&lt;p&gt; Bonne journée !&lt;/p&gt;";
+}else if 
+	...
+
+</xmp> </pre>
+
+
+<ul>
+<li> Afficher le contenu de la superglobale $_SERVER (tableau associatif). Commenter.</li>
+</ul>
+
+<p class="notetip"> Rappel : vous pouvez afficher rapidement le contenu d'un tableau avec la fonction <strong>print_r</strong>.</p>
+
+<p class="noteimportant"> Appeler l'enseignant pour valider cette étape.</p>
+
+
+<h2> Table de Pythagore </h2>
+
+<p> Dans cet exercice, vous aller créer une page <strong>mult.php</strong> affichant la table de multiplication des nombres de 1 à 10 (la table de Pythagore) comme
+ illustré sur la figure ci-dessous.</p>
+
+<p><img src="TP3_fichiers/mult.png" alt="capture multiplication" width="1000"></p>
+
+<p class="notetip"> Pour ce faire, compléter de manière adéquate le code suivant :
+</p><pre><xmp> 
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr" &gt; 
+&lt;head&gt; 
+	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt; 
+	&lt;title&gt; Exercice 2 &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table style="border: 1px solid red; text-align: center; width: 40%; margin: 10px auto;"&gt;
+
+&lt;caption style="color:red; text-align:center"&gt;Table de Multiplication&lt;/caption&gt;
+
+  &lt;?php
+    for ( &lt;à compléter&gt; ) {
+  ?&gt;
+      &lt;tr style="text-align: right;"&gt;
+        &lt;?php 
+           for ( &lt;à compléter&gt; ) {
+        		&lt;à compléter&gt;
+           }
+        ?&gt;
+      &lt;/tr&gt;
+  &lt;?php
+    }
+  ?&gt;
+&lt;/table&gt; 
+
+&lt;/body&gt;
+&lt;/html&gt;
+</xmp> </pre>
+
+
+<p class="notetip"> Vous remarquerez des styles en-lignes dans le code ci-dessous, mais c'est juste car l'exercice porte sur le code PHP.
+ Pour vos développements web, vous utiliserez bien sûr des feuilles de style externes.</p>
+
+<h2> Gestion d'un formulaire </h2>
+
+<ul>
+<li> Créez une page <strong>form.html</strong> contenant dans son corps (body) le formulaire suivant.</li>
+</ul>
+
+<pre><xmp> 
+&lt;form method="post" action="form_action.php"&gt;
+    &lt;fieldset&gt;
+		&lt;legend&gt;Informations sur vous&lt;/legend&gt;
+		&lt;label for="nom"&gt;Nom&lt;/label&gt; :
+		&lt;input type="text" name="nom" id="nom" /&gt;
+		&lt;label for="prenom"&gt;Prénom&lt;/label&gt; :
+		&lt;input type="text" name="prenom" id="prenom" value="Toto"/&gt;
+		&lt;hr /&gt;
+		&lt;label for="pseudo"&gt;Pseudo&lt;/label&gt; :
+		&lt;input type="text" name="pseudo" id="pseudo" placeholder="Ex : progtr" size="10" maxlength="10"/&gt;
+		&lt;label for="pass"&gt;Mot de passe&lt;/label&gt; :
+		&lt;input type="password" name="pass" id="pass" /&gt;
+		&lt;hr /&gt;
+		&lt;input type="checkbox" name="newsletter" value="news"/&gt;
+		&lt;label for="newsletter"&gt;Recevoir notre newsletter&lt;/label&gt;
+		&lt;hr /&gt;
+		&lt;input type="radio" name="sexe" id="homme" value="homme"/&gt;
+		&lt;label for="homme"&gt;Homme&lt;/label&gt;
+		&lt;input type="radio" name="sexe" id="femme" value="femme"/&gt;
+		&lt;label for="femme"&gt;Femme&lt;/label&gt;
+		&lt;hr /&gt;
+		&lt;label for="photo"&gt;Photo&lt;/label&gt; :
+		&lt;input type="file" name="photo" id="photo"/&gt;
+		&lt;hr /&gt;
+		&lt;label for="champCacher"&gt;Champ caché&lt;label&gt; :
+		&lt;input type="hidden" name="champCacher" id="champCacher" value="quelque chose de caché"/&gt;
+		&lt;hr /&gt;
+		&lt;label&gt;Couleur préférée&lt;/label&gt; :
+		&lt;select name="couleurs[]"&gt;
+		&lt;option value="vert" selected="selected"&gt;Vert&lt;/option&gt;
+		&lt;option value="bleu"&gt;Bleu&lt;/option&gt;
+		&lt;option value="rouge"&gt;Rouge&lt;/option&gt;
+		&lt;option value="jaune"&gt;Jaune&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;hr /&gt;
+		&lt;label&gt;Sports pratiqués&lt;/label&gt; :
+		&lt;input type="checkbox" name="sports[]" value="football" /&gt;Football
+		&lt;input type="checkbox" name="sports[]" value="rugby" /&gt;Rugby
+		&lt;input type="checkbox" name="sports[]" value="golf" /&gt;Golf
+		&lt;input type="checkbox" name="sports[]" value="jogging" /&gt;Jogging	
+		&lt;input type="checkbox" name="sports[]" value="autre" /&gt;Autre
+		&lt;hr /&gt;
+		&lt;label for="bouton"&gt;Un bouton&lt;/label&gt; :
+		&lt;input type="button" name="bouton" id="bouton" value="Cliquez ici" /&gt;
+		&lt;hr /&gt;
+		&lt;label for="init"&gt;Réinitialiser le formulaire&lt;/label&gt; :
+		&lt;input type="reset" name="init" id="init" /&gt;
+		&lt;hr /&gt;
+		&lt;label for="description"&gt;Description&lt;/label&gt; : &lt;br /&gt;
+		&lt;textarea rows="10" cols="50" name="description" id="description"&gt;&lt;/textarea&gt;
+		&lt;hr /&gt;
+		&lt;label for="image"&gt;Soumission avec une image&lt;/label&gt; :
+		&lt;input type="image" name="image" id="image" src="image_soumission.jpg" /&gt;
+		&lt;hr /&gt;
+		&lt;label for="soumission"&gt;Soumission traditionnelle&lt;/label&gt; :
+		&lt;input type="submit" name="soumission" id="soumission" /&gt;
+     &lt;/fieldset&gt;
+&lt;/form&gt;
+</xmp> </pre>
+
+<ul>
+<li>Réaliser l'action de ce formulaire permettant un affichage de toutes les données saisies en utilisant la fonction <strong>print_r</strong>.</li>
+<li>Réaliser cette même action à l'aide d'une boucle <strong>foreach</strong>.</li>
+	<li class="ul"><ul>
+	<li>Faire attention à afficher même les éléments des tableaux.</li>
+	<li>Pour tester si une variable est un tableau, utiliser la fonction <strong>is_array</strong>
+ (<a href="http://fr.php.net/manual/fr/function.is-array.php">php.net</a>).</li>
+	</ul></li>
+<li>Ajouter maintenant un message personnalisé reprenant les informations saisies. Exemples :</li>
+	<li class="ul"><ul>
+	<li>Bonjour Monsieur <strong>Durant Roméo</strong>. Vous ne souhaitez pas recevoir notre newsletter. Vous pratiquez le football et le golf.</li>
+	<li>Bonjour Madame <strong>André Irène</strong>. Vous avez accepté de recevoir notre newsletter. Vous ne pratiquez aucun sport.</li>
+	</ul></li>
+</ul>
+
+<p class="noteimportant"> Appeler l'enseignant pour valider cette étape.</p>
+
+<h2> Convertisseur Euros/Dollars </h2>
+
+<p>Créer une page <strong>convert.html</strong> contenant un formulaire composé de :</p>
+<ul>
+<li>une zone d'options permettant de choisir le sens de conversion que l'on désire, dollars vers euros ou l'inverse (boutons radios)</li>
+<li>un champ texte permettant de saisir la valeur que l'on souhaite convertir.</li>
+</ul>
+
+<p><img src="TP3_fichiers/convertisseur.png" alt="capture convertisseur" width="1000"></p>
+
+<p>Réaliser la page <strong>convert_action.php</strong>, l'URL action de ce formulaire, contenant un script
+ PHP qui va convertir la valeur saisie dans le sens précisé.</p>
+
+<ul>
+<li> Exemple : à la date du 6 février 2012, 1 euro vaut 1.31 dollar, et 1
+ dollar vaut 0.76 euro, donc si la valeur saisie est 100 et le sens de 
+conversion
+ demandé est "dollars vers euros", alors le résultat doit être un texte 
+de la forme
+ "100 dollars valent 76 euros à la date du 6 février 2012".</li>
+</ul>
+
+<p class="noteimportant"> Appeler l'enseignant pour valider cette étape.</p>
+
+<h2 id="habillage"> Habillage d'une page et incorporation de pages PHP </h2>
+
+<p> Créer une feuille de style <strong>tp3.css</strong> permettant d'habiller la page <strong>tp3.php</strong>,
+ présente dans les données de ce TP, comme illustré sur la figure suivante.</p>
+ 
+<p><img src="TP3_fichiers/TP3prepa.png" alt="habillage page tp3.php" width="1200"></p>
+
+<p>Pour réaliser cet habillage, vous n'avez et ne devez pas modifier la page tp3.php</p>
+<ul>
+<li>La police d'écriture sur toute la page est <strong>verdana</strong>.</li>
+<li>Toutes les bordures des blocs sont de <strong>2px</strong>.</li>
+<li>Les blocs contenant I, C, 3 sont séparés en haut et en bas de <strong>5px</strong>, à droite de <strong>1%</strong>.</li>
+<li>Penser aux réglages des marges internes (<strong>padding</strong>) et aux marges externes (<strong>margin</strong>).</li>
+<li>La largeur du bloc "navgauche" est de <strong>8%</strong>, le bloc "navcorps" par une marge externe gauche de <strong>1%</strong>.</li>
+<li>Pour centrer verticalement I, C, 3, penser à la propriété <strong>line-height</strong>.</li>
+<li>Pour le positionnement des blocs, penser aux propriétés <strong>float</strong> et <strong>clear</strong></li>
+<li>Remarquer la format des liens.</li>
+<li>Ne pas régler les hauteurs des blocs : on n'utlisera pas la propriété <em>height</em>.</li>
+<li>Les codes des couleurs employées sont illustrés sur la figure ci-dessous.</li>
+</ul>
+
+<p><img src="TP3_fichiers/TP3couleurs.png" alt="couleurs tp3.css" width="1000"></p>
+
+<p>On souhaite maintenant lier à chaque lien du bloc "navcorps" le 
+contenu dans le bloc "navcorps" des pages précédemment réalisées.
+ Par exemple en cliquant sur le lien associé à la table de Pythagore on 
+aura le résultat illustré sur la figure suivante.</p>
+
+<p><img src="TP3_fichiers/TP3pyth.png" alt="capture TP2pyth.png" width="1200"></p>
+
+<ul>
+<li> Réaliser les changements nécessaires pour réaliser ce travail (le lien Accueil renverra à la page principale tp3.php où on
+ affichera dans le bloc "navcorps" ce qui était affiché par la page page1.php).</li>
+</ul>
+<p class="notetip"> Mettre dans une page <strong>titres.php</strong> tous les blocs communs aux différentes pages, et inclure cette page dans vos pages.
+ Pour rappel : on utilise la fonction <strong>include</strong>.</p>
+<p> Solution : </p>
+<pre><xmp> &lt;?php include 'titres.php';?&gt; </xmp></pre> 
+
+<p class="notetip"> En gros votre nouvelle page <strong>tp3.php</strong> :</p>
+
+<pre><xmp> 
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf8"/&gt;
+	&lt;link rel="stylesheet" type="text/css" href ="tp3.css"/&gt;
+	&lt;title&gt; IC3 : TP n°3 &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;?php include 'titres.php';?&gt;
+
+&lt;div id="navcorps"&gt;
+&lt;?php include 'affichedate.php';?&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</xmp></pre>
+
+<p class="notetip"> La page <strong>affichedate.php</strong> contient uniquement le code php permettant d'afficher Bonjour suivi de la date du jour.</p>
+<p class="notetip"> La page <strong>titres.php</strong> contient uniquement le code suivant : </p>
+
+<pre><xmp> 
+&lt;div id="titre"&gt;
+&lt;p&gt; TP n°3 &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="soustitre"&gt;
+&lt;p class="couleur1"&gt;I&lt;/p&gt;
+&lt;p class="couleur2"&gt;C&lt;/p&gt;
+&lt;p class="couleur3"&gt;3&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="navgauche"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="tp3.php"&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="mult.php"&gt;Pythagore&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="form.php"&gt;Formulaire&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="convert.php"&gt;Convertisseur&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</xmp></pre>
+
+<p class="noteimportant"> Appeler l'enseignant pour valider cette étape.</p>
+
+<p class="noteimportant"> 
+N'oubliez pas : à la fin du TP, vous devez déposer une archive de vos travaux sur la plate-forme moodle.
+ Pour nommer votre archive, respecter le standard : Groupe_Nom_TP3_IC3.[zip|tar.gz]
+</p>
+
+</div>
+
+<div id="footer">
+<p class="left"> IUT Béthune - Département R&amp;T </p>
+<p class="centre"> IC3 : Applications Web Dynamiques</p>
+<p class="right"> © David MERCIER</p>
+<hr style="margin-left: 0px; margin-right: 0px;"> 
+</div>
+
+</div>
+
+</body></html>

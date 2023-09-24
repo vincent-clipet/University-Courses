@@ -1,0 +1,49 @@
+<form method="post" action="form_action.php">
+	<fieldset>
+		<legend>Informations sur vous</legend>
+		<label for="nom">* Nom</label> : <input type="text" name="nom" id="nom" /> <br />
+		<label for="prenom">* Prénom</label> : <input type="text" name="prenom"
+			id="prenom" value="Toto" />
+		<hr />
+		<label for="pseudo">Pseudo</label> : <input type="text" name="pseudo"
+			id="pseudo" placeholder="Ex : progtr" size="10" maxlength="10" /> <label
+			for="pass">Mot de passe</label> : <input type="password" name="pass"
+			id="pass" />
+		<hr />
+		<input type="checkbox" name="newsletter" value="news" /> <label
+			for="newsletter">* Recevoir notre newsletter</label>
+		<hr />
+		<input type="radio" name="sexe" id="homme" value="homme" /> <label
+			for="homme">* Homme</label> <input type="radio" name="sexe" id="femme"
+			value="femme" /> <label for="femme">Femme</label>
+		<hr />
+		<label for="photo">Photo</label> : <input type="file" name="photo"
+			id="photo" />
+		<hr />
+		<label for="champCacher">Champ caché</label> : <input
+				type="hidden" name="champCacher" id="champCacher"
+				value="quelque chose de caché" />
+				<hr /> <label>Couleur préférée</label> : <select name="couleurs[]">
+					<option value="vert" selected="selected">Vert</option>
+					<option value="bleu">Bleu</option>
+					<option value="rouge">Rouge</option>
+					<option value="jaune">Jaune</option>
+			</select>
+				<hr /> <label>* Sports pratiqués</label> : <input type="checkbox"
+				name="sports[]" value="football" />Football <input type="checkbox"
+				name="sports[]" value="rugby" />Rugby <input type="checkbox"
+				name="sports[]" value="golf" />Golf <input type="checkbox"
+				name="sports[]" value="jogging" />Jogging <input type="checkbox"
+				name="sports[]" value="autre" />Autre
+				<hr /> <label for="bouton">Un bouton</label> : <input type="button"
+				name="bouton" id="bouton" value="Cliquez ici" />
+				<hr /> <label for="init">Réinitialiser le formulaire</label> : <input
+				type="reset" name="init" id="init" />
+				<hr /> <label for="description">Description</label> : <br /> <textarea
+					rows="10" cols="50" name="description" id="description"></textarea>
+				<hr /> <label for="image">Soumission avec une image</label> : <input
+				type="image" name="image" id="image" src="image_soumission.jpg" />
+				<hr /> <label for="soumission">Soumission traditionnelle</label> :
+				<input type="submit" name="soumission" id="soumission" />
+	</fieldset>
+</form>

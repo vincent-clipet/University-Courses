@@ -1,0 +1,1 @@
+La structure du site, le diagramme de classes et le schéma relationnel sont directement intégrés au site (sur la page d'accueil)

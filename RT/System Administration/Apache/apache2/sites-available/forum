@@ -1,0 +1,21 @@
+# forum
+
+<VirtualHost *:80>
+
+	ServerName forum.localhost
+	ServerAdmin webmaster@forum.localhost
+	ServerAlias forum.localhost
+
+	DocumentRoot /administrateur/Bureau/htdocs/forum/
+
+	<Directory /administrateur/Bureau/htdocs/forum/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/forum.error.log
+	CustomLog ${APACHE_LOG_DIR}/forum.access.log combined
+
+</VirtualHost>

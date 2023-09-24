@@ -1,0 +1,15 @@
+; named.conf.options
+
+options {
+	directory "/var/cache/bind";
+
+	 forwarders {
+	 	172.31.23.10;
+		193.49.62.9;
+	 };
+
+	dnssec-validation auto;
+
+	auth-nxdomain no;    # conform to RFC1035
+	listen-on-v6 { any; };
+};

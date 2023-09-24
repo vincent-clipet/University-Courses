@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+
+	ServerName alzheimer.memoire50.local
+	ServerAdmin admin@alzheimer.memoire50.local
+	ServerAlias alzheimer.memoire50.local
+
+	#DocumentRoot /administrateur/Bureau/htdocs/forum/
+
+	#<Directory /administrateur/Bureau/htdocs/forum/>
+		#Options Indexes FollowSymLinks MultiViews
+		#AllowOverride None
+		#Order allow,deny
+		#allow from all
+	#</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/alzheimer.memoire50.local.error.log
+	CustomLog ${APACHE_LOG_DIR}/alzheimer.memoire50.local.access.log combined
+
+</VirtualHost>

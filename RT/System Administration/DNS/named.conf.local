@@ -1,0 +1,14 @@
+; named.conf.local
+
+//include "/etc/bind/zones.rfc1918";
+
+zone "25.31.172.in-addr.arpa" {
+        type master;
+        notify no;
+        file "/etc/bind/db.172";
+};
+
+zone "vince.lan" {
+	type master;
+	file "/etc/bind/db.vince.lan";
+};

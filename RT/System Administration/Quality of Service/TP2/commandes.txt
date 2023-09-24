@@ -1,0 +1,58 @@
+// A:local = 192.168.50.1
+// B:distant = 192.168.51.1
+
+hostA=192.168.50.1
+netA=192.168.50.0
+routerA=192.168.50.2
+
+hostB=192.168.51.1
+netB=192.168.51.0
+routerB=192.168.51.2
+
+
+# ------ A:
+ip address add $hostA/24 dev eth0
+ip route add $netA/24 dev eth0
+ip route add default via $routerA dev eth0
+
+
+# ------ B:
+ip address add $hostB/24 dev eth0
+ip route add $netB/24 dev eth0
+ip route add default via $routerB dev eth0
+
+
+# ------ Routeur:
+ip address add $routerA/24 dev eth0
+ip address add $routerB/24 dev eth1
+ip route add $netB/24 dev eth1
+ip route add $netA/24 dev eth0
+
+
+
+# Services
+service dhcp stop
+ifconfig eth0 down
+
+
+
+
+
+
+
+# --------------------------------------------
+
+
+
+# Forwarding
+nano /proc/sys/net/ipv4/ip_forward
+
+
+
+# -- Alias --
+alias send="/administrateur/Bureau/QoS/DITG/bin/ITGSend "
+alias recv="/administrateur/Bureau/QoS/DITG/bin/ITGRecv "
+alias dec="/administrateur/Bureau/QoS/DITG/bin/ITGDec "
+
+
+

@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+.content { /* s'applique à tous les contenus*/
+	width: 600px;
+	background-color: #efefef;
+	border-right: 1px solid blue;
+	border-left: 1px solid blue;
+	position: fixed;
+	top: 42px;
+	bottom: 42px;
+	margin-left: 200px;
+	overflow-y: scroll;
+}
+
+#home {
+	background-color: #efefef;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#home img {
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 20%; 
+}

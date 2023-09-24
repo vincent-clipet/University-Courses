@@ -1,0 +1,352 @@
+body  { 	
+	background-color:#336699;
+	color:#006699 ;
+	text-align:center ;
+	padding:0;
+	margin:0;
+	font-family:"comic sans ms" 
+} 
+
+#page  { 	
+	position:relative;
+	margin-left:2%;
+	margin-right:2%;
+	margin-top:25px;
+	margin-bottom:25px;
+	background-color:#FFFFFF;
+	background-image:url("images/fond.png");
+	background-repeat:no-repeat;
+	background-position:right top;
+	border:3px solid #000000;
+	padding:35px 15px 15px 
+} 
+
+#contenu  { 	
+	float:right;
+	width:80%;
+	background-color:#F5F8FC;
+	border:1px solid #6699CC;
+	padding:5px;
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:left 
+} 
+
+
+#contenu img.centre { 	
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	max-width:100%;
+	overflow:auto 
+} 
+
+
+#header  { 	
+	float:left;
+	width:100%;
+	background:#DAE0D2 url("images/bg.gif") repeat-x bottom;
+	font-size:93%;
+	line-height:normal 
+}
+#header ul  { 	
+	margin:0;
+	padding:10px 10px 0;
+	list-style:none 
+}
+#header li  { 	
+	float:left;
+	background:url("images/norm_left.gif") no-repeat left top;
+	margin:0;
+	padding:0 0 0 9px 
+}
+#header a  { 	
+	float:left;
+	display:block;
+	background:url("images/norm_right.gif") no-repeat right top;
+	padding:5px 15px 4px 6px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#765 
+} 
+    /* Commented Backslash Hack
+       hides rule from IE5-Mac \*/
+#header a  { 	
+	float:none 
+} 
+    /* End IE5-Mac hack */
+#header a:hover  { 	
+	color:#333 
+}
+#header #current  { 	
+	background-image:url("images/norm_left_on.gif");
+	border-width:0 
+}
+#header #current a  { 	
+	background-image:url("images/norm_right_on.gif");
+	color:#333;
+	padding-bottom:5px 
+} 
+
+
+
+/*
+#contenu ul li  { 	
+	padding:5px;
+	list-style-type:none;
+	margin-bottom:0;
+	border:2px solid #000000 
+}
+#contenu ul li a  { 	
+	padding:0;
+	list-style-type:none;
+	margin-bottom:0;
+	border:1px solid #000000 
+}
+#contenu ul li a:first-child  { 	
+	padding:0;
+	margin-bottom:0;
+	border:none 
+}
+#contenu ul  { 	
+	padding:0;
+	border:1px solid #000000 
+} 
+*/
+
+
+#menu  { 	
+	float:left;
+	width:15%;
+	height:400px;
+	padding:5px;
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:left 
+} 
+
+#menu logo  { 	
+	float:left;
+	border:15 
+} 
+
+#menu logo a  { 	
+	border-style:none;
+	border:transparent ;
+	text-decoration:none 
+} 
+
+#menu logo a img  { 	
+	margin-bottom:10px;
+	border:transparent ;
+	left:0;
+	top:0 
+} 
+
+#menu ul  { 	
+	clear:left;
+	list-style-type:none;
+	padding:0;
+	margin:0 
+} 
+
+#menu li  { 	
+	margin-bottom:5px 
+} 
+
+
+
+#menu li a  { 	
+	margin:0 2px;
+	width:128px;
+	height:20px;
+	display:block;
+	text-align:center;
+	border:1px solid gray;
+	text-decoration:none;
+	color:#000;
+	background:#fff 
+} 
+	 
+#menu li a:hover  { 	
+	background:#ccc;
+	border:1px solid gray 
+} 
+
+#menu li a:active  { 	
+	background:gray;
+	border:1px solid gray;
+	color:#fff 
+} 
+
+
+
+
+.titre  { 	
+	text-align:center;
+	font-size:36px;
+	font-family:"Times New Roman"
+/*	font-family:verdana, arial, sans-serif */
+} 
+
+.photo  { 	
+	float:left;
+	width:20%;
+	margin:1em 2em 1em 1em 
+} 
+
+.code  { 	
+	font-family:"Courier New";
+	font-style:normal;
+	color:#000000 
+} 
+
+.note  { 	
+	font-family:"verdana, arial, sans-serif";
+	font-style:italic;
+	border:1px dashed #000000;
+	margin-left:5%;
+	margin-right:5%;
+	padding:.5em;
+	color:#333;
+	background-color:#ddd 
+} 
+
+
+
+/*
+.logo  { 	
+	border:0 ;
+	left:0;
+	top:0 
+} */
+
+
+
+
+
+
+
+
+.important  { 	
+	font-style:normal;
+	font-size: 140%;
+	font-weight:bolder;
+	color: red;
+	border: 1px solid #000000;  
+	padding: 0.05cm; 
+	background-color:#E6E6E6;
+	text-style: center
+} 
+
+pre  { 	
+	position:relative;
+	padding-left:15px;
+	border-left:3px solid #BFFFA4;
+	left:50px; 
+	font-family:Courier New Roman;
+	color:#000000 
+} 
+
+pre.lignecommande { 
+	position:relative;
+	margin-left: 0.25cm; 
+	margin-right: 0.25cm; 
+	left:0px; 
+	border: 1px solid #000000;  
+	padding: 0.05cm; 
+	background-color:#E6E6E6;
+	font-weight: medium 
+}
+
+
+
+#footer  { 	
+	clear:both;
+	padding:.5em 0 0 0 ;
+	color:#333;
+	background-color:#ddd;
+	border-top:1px solid gray ;
+	line-height:0.1%;
+	border-bottom:1px solid gray 
+}
+#footer p  { 	
+	padding:0;
+	margin:0;
+	float:left;
+	width:33% ;
+	font:italic 70% arial, helvetica, sans-serif;
+	color:#333;
+	background-color:#ddd 
+} 
+
+#footer p.centre  { 	
+	width:33% ;
+	text-align:center ;
+	background-color:#dde 
+} 
+
+#footer p.left  { 	
+	text-align:left 
+} 
+
+#footer p.right  { 	
+	text-align:right 
+} 
+
+#footer hr  { 	
+	clear:both;
+	visibility:hidden ;
+	font:italic 1% arial, helvetica, sans-serif;
+	line-height:0%;
+	padding:0;
+	margin:0;
+	border:1px solid gray 
+} 
+
+/*
+.left  { 	
+	float:left;
+	padding:0.5em  ;
+	width:33% ;
+	font:italic 70% arial, helvetica, sans-serif;
+	text-align:left ;
+	color:#333;
+	background-color:#ddd 
+} 
+
+.left p  { 	
+	display:inline 
+} 
+
+.centre  { 	
+	float:left;
+	padding:0.5em  ;
+	width:33% ;
+	font:italic 70% arial, helvetica, sans-serif;
+	text-align:center ;
+	color:#333;
+	background-color:#ddd 
+}
+.centre p  { 	
+	display:inline 
+} 
+
+.right  { 	
+	float:left;
+	padding:0.5em  ;
+	width:33% ;
+	color:#333;
+	background-color:#ddd;
+	width:33% ;
+	font:italic 70% arial, helvetica, sans-serif;
+	text-align:right 
+} 
+
+.right p  { 	
+	display:inline 
+} 
+*/
+
+
+

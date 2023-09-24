@@ -1,0 +1,36 @@
+@CHARSET "ISO-8859-1";
+
+#contact_me form {
+	margin-top: 15px;
+	margin-left: 30px;
+	margin-right: 30px; 
+}
+
+#contact_me legend {
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 20px;
+	font-family: Verdana;
+}
+
+#contact_me fieldset {
+	border: 3px solid #e38c1d;
+	background-color: #f5ea4d;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+#contact_me div {
+	padding-left: 12px;
+}
+
+#contact_me hr {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.element_me {
+	text-decoration: underline;
+	color: #e38c1d;
+	font-weight: bold;
+}

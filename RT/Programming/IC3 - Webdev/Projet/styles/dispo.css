@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+#dispo table {
+	border: 2px solid #f47801;
+	border-collapse: collapse;
+	width: 80%;
+	margin-left: 10%;
+}
+
+#dispo table caption {
+	font-family: Arial;
+	margin-bottom: 10px;
+	margin-top: 30px;
+	color: #f47801;
+	background-color: #f5ea4d;;
+	font-size: 130%;
+}
+
+.top_bot th {
+	border: #f47801 1px dotted;
+	width: 25%;
+}
+
+#dispo table tr {
+	background-color: #f5ea4d;;
+	border: 1px solid #f47801;
+	font-family: arial;
+	font-style: oblique;
+}
+
+#dispo table tbody tr td {
+	background-color: #ffffff;
+	border: #f47801 1px solid;
+	font-style: normal;	
+}
+
+.ok {
+	color: #aaaef8;
+	text-align: center;
+}

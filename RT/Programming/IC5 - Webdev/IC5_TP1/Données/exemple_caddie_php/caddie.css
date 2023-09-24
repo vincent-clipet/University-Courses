@@ -1,0 +1,39 @@
+table {
+	border: 3px solid #6495ed;
+	border-collapse: collapse;
+	margin: 10px 0;
+}
+
+th {
+	font-family: sans-serif;
+	border: 1px solid #6495ed;
+	padding: 5px;
+	background-color:#EFF6FF;
+	width: 100px;
+}
+
+td {
+	font-family:sans-serif;
+	font-size:80%;
+	border:1px solid #6495ed;
+	padding:5px;
+	text-align:center;
+}
+
+caption {
+	font-family: Broadway;
+}
+
+div#erreur{
+	color: red;
+	background-color: yellow;
+	text-align: center;
+	font: bold 1.5em arial;
+}
+
+div#notification{
+	color: green;
+	background-color: greenyellow;
+	text-align: center;
+	font: bold 1.5em arial;
+}

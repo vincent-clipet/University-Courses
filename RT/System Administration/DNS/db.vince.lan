@@ -1,0 +1,16 @@
+; db.vince.lan
+
+$TTL	604800
+@	IN	SOA	ns.vince.lan. admin.vince.lan. ( ; EDIT
+			      5		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+
+
+@       IN      NS      ns.vince.lan.
+ns      IN      A       172.31.25.154
+
+test	IN 	A	172.31.25.155
+test2	IN 	A	172.31.25.156

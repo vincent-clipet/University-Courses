@@ -1,0 +1,46 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#header_frame {
+	float: left;
+	width: 800px;
+	height: 40px;
+	position: fixed;
+	top: 0;
+	background-color: #efefef;
+	border: 1px solid blue;
+}
+
+#header ul {
+	padding-left: 199px;
+	padding-top: 11px;
+	list-style: none;
+}
+
+#header a {
+	float: left;
+	background: url(../images/onglet_partie_gauche.gif) no-repeat left top;
+	padding: 0 0 0 4px;
+	text-decoration: none;
+	font-weight: bold;
+	color: blue;
+}
+
+#header a span {
+	display: block;
+	background: url(../images/onglet_partie_droite.gif) no-repeat right top;
+	padding: 5px 15px 4px 5px;
+}
+
+#header a:hover {
+	background-position: 0 -42px;
+}
+
+#header a:hover span {
+	background-position: 100% -42px;
+	color: #FFFFFF;
+}

@@ -1,0 +1,11 @@
+$TTL	604800
+@	IN	SOA	alzheimer.memoire50.local. admin.memoire50.local. (
+			      5		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+
+@		IN      NS      alzheimer.memoire50.local.
+alzheimer	IN      A       172.31.25.155

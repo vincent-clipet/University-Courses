@@ -1,0 +1,18 @@
+@CHARSET "ISO-8859-1";
+
+#footer_frame {
+	position: fixed;
+	bottom: 0;
+	width: 800px;
+	height: 40px;
+	background-color: #efefef;
+	border: 1px solid blue;
+}
+
+#footer_frame #date {
+	text-align: right;
+	color: #e38c1d;
+	font-style: italic;
+	margin-right: 10px;
+	margin-top: 7px;
+}

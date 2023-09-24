@@ -1,0 +1,31 @@
+# ps f -ea
+# Affiche la liste des processus / processus fils
+
+I :
+===
+
+Q1 => La 3ème colonne correspond au temps actif depuis le début de la dernière tâche d'un processus.
+
+2) Voir fichier 1-2.rb
+
+Q2 => kill -9 [PID]
+
+4) Voir fichier 1-4.rb
+
+
+
+
+II :
+====
+
+Q3 => Ce code affiche une matrice 'a2' en fonction d'une matrice 'a'
+	$a2[i][j] = $a2[i][j] + $a[i][k] * $a[k][j] 
+
+2) Voir 2-1.rb
+
+Q4 =>
+	* n=10 : 10.12 sec
+	* n=15 : 34.15 sec
+	* n=20 : 80.93 sec
+	* n=25 :  sec
+

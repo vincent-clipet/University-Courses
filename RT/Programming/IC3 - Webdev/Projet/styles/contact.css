@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+
+#contact form {
+	width: 50%;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto; 
+}
+
+#contact legend {
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 20px;
+	font-family: Verdana;
+}
+
+#contact fieldset {
+	border: 3px solid #e38c1d;
+	background-color: #f5ea4d;
+}
+
+#contact div {
+	padding-left: 12px;
+}
+
+#contact hr {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.element {
+	text-decoration: underline;
+	color: #e38c1d;
+	font-weight: bold;
+}

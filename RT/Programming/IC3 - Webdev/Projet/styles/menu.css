@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+
+#menu_frame {
+	width: 200px;
+	border-left: 1px solid blue;
+	background-color: #efefef;
+	position: fixed;
+	top: 42px;
+	bottom: 42px;
+}
+
+#menu {
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#menu ul {
+	list-style: inside url("images/puce.png");
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#menu ul li {
+	padding-bottom: 6px;
+}
+
+#menu ul li a:LINK, #menu ul li a:VISITED {
+	color: blue;
+	text-decoration: none;
+	font-weight: bold;
+}

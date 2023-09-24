@@ -1,0 +1,85 @@
+installation module sql :
+-----------------------
+
+apt-get install mysql-server
+
+apt-get install phpmyadmin
+ln -s /usr/share/phpmyadmin /var/www/phpmyadmin
+
+cd /etc/apache2/mods-enabled/
+ln -s /etc/apache2/mods-available/auth_mysql.load
+service apache2 restart
+
+
+
+
+
+Fichier .htaccess (à placer dans le dossier à protéger) :
+-----------------
+
+AuthType Basic
+AuthName "Accès réservé !!!"
+AuthBasicAuthoritative Off
+AuthUserFile /dev/null
+AuthMySQL On
+AuthMySQL_Authoritative      on
+AuthMySQL_Host               localhost
+AuthMySQL_DB                 db
+AuthMySQL_User               root
+AuthMySQL_Password           progtr00
+AuthMySQL_Password_Table     users
+AuthMySQL_Group_Table        groups
+AuthMySQL_Username_Field     user_name
+AuthMySQL_Password_Field     user_passwd
+AuthMySQL_Group_Field        user_group
+AuthMySQL_Encryption_Types   Plaintext
+Require group                user
+
+<Limit GET POST>
+require group <group>
+</Limit>
+
+
+
+
+
+
+
+Fichier principal (à placer dans le dossier à protéger) :
+-----------------
+
+<Directory /administrateur/Bureau/htdocs/secret/>
+	Options +Indexes FollowSymLinks MultiViews
+	AllowOverride AuthConfig Options FileInfo Limit
+	Order allow,deny
+	Allow from all
+</Directory>
+
+
+
+
+
+
+
+
+
+Création des tables :
+-------------------
+
+#    CREATE TABLE users (
+#      user_name CHAR(30) NOT NULL,
+#      user_passwd CHAR(32) NOT NULL,
+#      PRIMARY KEY (user_name)
+#    );
+#    CREATE TABLE groups (
+#      user_name CHAR(30) NOT NULL,
+#      user_group CHAR(20) NOT NULL,
+#      PRIMARY KEY (user_name, user_group)
+#    );
+#    INSERT INTO users VALUES
+#      ('testuser', '179ad45c6ce2cb97cf1029e212046e81');
+#    INSERT INTO groups VALUES ('testuser', 'user');
+#    INSERT INTO users VALUES
+#      ('testadmin', '179ad45c6ce2cb97cf1029e212046e81');
+#    INSERT INTO groups VALUES ('testadmin', 'admin');
+#    INSERT INTO groups VALUES ('testadmin', 'user');

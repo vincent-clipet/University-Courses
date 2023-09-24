@@ -1,0 +1,21 @@
+# test
+
+<VirtualHost *:80>
+
+	ServerName test.localhost
+	ServerAdmin webmaster@test.localhost
+	ServerAlias test.localhost
+
+	DocumentRoot /administrateur/Bureau/htdocs/test/
+
+	<Directory /administrateur/Bureau/htdocs/test/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/test.error.log
+	CustomLog ${APACHE_LOG_DIR}/test.access.log combined
+
+</VirtualHost>

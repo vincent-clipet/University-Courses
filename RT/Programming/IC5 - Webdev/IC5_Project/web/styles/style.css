@@ -1,0 +1,94 @@
+@CHARSET "ISO-8859-1";
+
+/* === GENERAL === */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #cccccc;
+}
+
+#page {
+	width: 80%; margin : 0 10% 0 10%;
+	padding: 20px 0 20px 0;
+	background-color: #ffffff;
+	margin: 0 10% 0 10%;
+}
+
+
+/* === NEWS === */
+.news {
+	clear: both;
+	padding: 15px 20px 15px 20px;
+	border-top: black 2px solid;
+	margin: 10px 0 10px 0;
+}
+
+.news h3 {
+	text-decoration: underline;
+	color: #5372db;
+}
+
+.news_infos {
+	clear: both;
+	font-size: 80%;
+	float: right;
+	color: #ec7b0b;
+}
+
+.author {
+	font-size: 90%;
+	font-weight: bold;
+}
+
+.date {
+	font-style: italic;
+}
+
+.news_content {
+	padding: 20px 0 0 0;
+}
+
+
+
+
+/* === TABS === */
+#tabs table {
+	width: 50%;
+	border: solid 4px red;
+}
+
+#tabs table tr td a {
+	width: 50%;
+	font-size: 150%;
+}
+
+#tabs_index {
+	padding: 5px 20px 5px 20px;
+}
+
+#tabs_profile {
+	
+}
+
+#tabs_newArticle {
+	
+}
+
+
+
+
+.login {
+	width: 200px;
+	padding: 5px 5px 5px 5px;
+	margin: 0 0 10px 0; 
+	float: right;
+	border: double 2px blue;
+}
+
+.login fieldset {
+	padding-left: 10px;
+}
+

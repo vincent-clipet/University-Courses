@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" media="screen" href="tp2_fichiers/stylePerso.css">
+<title>Gestion de trafic sous linux</title>
+</head>
+<body>
+<!-- Logo ========================= -->
+<!--
+		<div id="logo">
+		<a href="#"><img src="images/logo.jpg" alt="TP TR3-2 R&amp;T 2"></a>
+		</div>
+		-->
+<div id="page">
+<div id="menu">
+<div id="logo"><a href="http://iut-rt/enonceTP/TR3-2/index.html"> <img src="tp2_fichiers/logo.jpg" alt="TP Réseaux GTR2" border="0"> </a></div>
+<ul>
+	<li><a href="#objectifs">Objectifs</a></li>
+	<li><a href="#outils">Outils</a></li>
+	<li><a href="#presentation">Présentation</a></li>
+	<li><a href="#travail">Travail</a></li>
+</ul>
+</div>
+<div id="contenu">
+<h1 class="titre">TP TR3-2 R&amp;T 2 - Gestion de trafic sous linux</h1>
+<h1><a id="objectifs">Objectifs</a></h1>
+<p>Nous allons utiliser le réseau du TP précédent et mettre en
+oeuvre une gestion de trafic à l'aide de la commande <span class="code">tc</span>.</p>
+<h1><a id="outils">Outils</a></h1>
+<p>Nous allons utiliser les commandes <span class="code">D-ITG
+V. 2.6</span> pour générer un trafic et ensuite l'analyser. La commande <span class="code">gnuplot</span> pour visualiser les courbes.</p>
+<h1><a id="presentation">Présentation</a></h1>
+<p>Nous allons reprendre la même configuration réseau du TP
+précédent :</p>
+<img style="" src="tp2_fichiers/reseauTP1.png" height="300">
+<h1><a id="travail">Travail Demandé</a></h1>
+<ol>
+	<li>Configurer les machines pour obtenir le réseau de la figure
+	précédente.</li>
+	<li>A l'aide de la commande <span class="code">ITDSend</span> vous
+	aller générer le trafic suivant:
+	<ul>
+		<li>A tps = 0.0 : 4000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute avec un champ TOS
+		qui vaut <span class="code">0x00</span>.</li>
+		<li>A tps = 0.0 : 4000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute avec un champ TOS
+		qui vaut <span class="code">0x10</span>.</li>
+		<li>A tps = 0.0 : 4000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute avec un champ TOS
+		qui vaut <span class="code">0x02</span>.</li>
+		<p>Il faut utiliser un fichier script contenant les instructions
+		pour construire les flux proposés. Les ports sources et destinations
+		doivent être différents, car on s'adresse aux mêmes machines.</p>
+	</ul>
+	<p>Afficher la courbe du trafic généré. Que peut-on en dire ?</p>
+	</li>
+
+	<li>A l'aide de la commande <span class="code">ITDSend</span> vous
+	aller générer le trafic suivant:
+	<ul>
+		<li>A tps = 0.0 : 1500 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute.</li>
+		<li>A tps = 10.0 : 3000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 50s.</li>
+		<li>A tps = 20.0 : 4000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 40s.</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<ul>
+		<li>A l'aide de la commande <span class="code">tc</span>, réduire
+		le trafic à <span class="code">4Mbit/s</span> vers le réseau <span class="code">192.168.1.0/24</span>.
+	</li></ul>
+	<p>Générer le trafic précédent et constater le résultat sur une
+	courbe.</p>
+	<p>La commande <span class="code">ITGDec</span> peut afficher à
+	l'aide de l'option <span class="code">-p 1000</span>, les paquets
+	perdus en moyenne par seconde (<span class="code">1000</span>) qui ont
+	été générés par la commande <span class="code">ITGSend</span>.</p>
+	<p>Visualiser le nombre de paquets perdus à l'aide d'une courbe.</p>
+	<p>Ré-initialiser la gestion de trafic.</p>
+
+	</li>
+
+
+	<li>A l'aide de la commande <span class="code">ITDSend</span> vous
+	aller générer le trafic suivant:
+	<ul>
+		<li>A tps = 0.0 : 3000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute.</li>
+		<li>A tps = 0.0 : 3000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.100</span> pendant 1 minute.</li>
+		<li>A tps = 0.0 : 3000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.101</span> pendant 1 minute.</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Nous allons faire une gestion de trafic à l'aide du gestionnaire
+	de files d'attente <span class="code">PRIO</span>.</p>
+	<ul>
+		<li>Créer le gestionnaire de files d'attente <span class="code">PRIO</span>
+		à la racine</li>
+		<li>Créer les filtres de façon à envoyer le trafic à destination
+		de l'adresse
+		<ul>
+			<li><span class="code">192.168.1.1</span> vers la classe <span class="code">1:1</span></li>
+			<li><span class="code">192.168.1.100</span> vers la classe <span class="code">1:2</span></li>
+			<li><span class="code">192.168.1.101</span> vers la classe <span class="code">1:3</span></li>
+		</ul>
+		</li>
+		<li>Attacher un gestionnaire de files d'attente <span class="code">pfifo</span> à chacune de ces classes</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Ré-initialiser la gestion de trafic.</p>
+	</li>
+
+	<li>A l'aide de la commande <span class="code">ITDSend</span> vous
+	aller générer le trafic suivant:
+	<ul>
+		<li>A tps = 0.0 : 6000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute.</li>
+		<li>A tps = 0.0 : 6000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.100</span> pendant 1 minute.</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Visualiser le nombre de paquets perdus à l'aide d'une courbe.</p>
+	<p>La commande <span class="code">ITGDec</span> peut afficher à
+	l'aide de l'option <span class="code">-j 1000</span>, la gigue en
+	moyenne par seconde (<span class="code">1000</span>) qui a été générée
+	par la commande <span class="code">ITGSend</span>.</p>
+	<p>Visualiser la variation de la gigue à l'aide d'une courbe.</p>
+	<p>Nous allons faire une gestion de trafic à l'aide du gestionnaire
+	de files d'attente <span class="code">HTB</span>.</p>
+	<ul>
+		<li>Créer la classes 1:1 avec une bande passante de 10mbit/s</li>
+		<li>Créer les classes 1:10, 1:20 avec une bande passante
+		respective de 9mbit/s et 1mbit/s</li>
+		<li>Créer les filtres de façon à envoyer le trafic à destination
+		de l'adresse
+		<ul>
+			<li><span class="code">192.168.1.1</span> vers la classe <span class="code">1:10</span></li>
+			<li><span class="code">192.168.1.100</span> vers la classe <span class="code">1:20</span></li>
+		</ul>
+		</li>
+		<li>Attacher un gestionnaire de files d'attente <span class="code">pfifo</span> à chacune de ces classes</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Visualiser le nombre de paquets perdus à l'aide d'une courbe.</p>
+	<p>Ré-initialiser la gestion de trafic.</p>
+	</li>
+
+
+	<li>A l'aide de la commande <span class="code">ITGSend</span> vous
+	aller générer le trafic <span class="code">TCP</span> suivant:
+	<ul>
+		<li>A tps = 0.0 : 4000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute.</li>
+		<li>A tps = 0.0 : 4000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.100</span> pendant 1 minute.</li>
+		<li>A tps = 0.0 : 4000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.101</span> pendant 1 minute.</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Nous allons faire une gestion de trafic à l'aide du gestionnaire
+	de files d'attente <span class="code">HTB</span>.</p>
+	<ul>
+		<li>Créer le gestionnaire de files d'attente <span class="code">HTB</span>
+		à la racine</li>
+		<li>Créer la classes 1:1 avec une bande passante de 10mbit/s</li>
+		<li>Créer les classes 1:10, 1:20, 1:30 avec une bande passante
+		respective de 8mbit/s, 1mbit/s et 1mbit/s</li>
+		<li>Créer les filtres de façon à envoyer le trafic à destination
+		de l'adresse
+		<ul>
+			<li><span class="code">192.168.1.1</span> vers la classe <span class="code">1:10</span></li>
+			<li><span class="code">192.168.1.100</span> vers la classe <span class="code">1:20</span></li>
+			<li><span class="code">192.168.1.101</span> vers la classe <span class="code">1:30</span></li>
+		</ul>
+		</li>
+		<li>Attacher un gestionnaire de files d'attente <span class="code">pfifo</span> à chacune de ces classes</li>
+		<p>Afficher la courbe du trafic généré.</p>
+		<p>Générer un trafic de 2000 paquets au lieu de 1000 et afficher
+		la courbe du trafic généré.</p>
+		<p>Ré-initialiser la gestion de trafic.</p>
+	</ul>
+	</li>
+
+	<li>A l'aide de la commande <span class="code">ITGSend</span> vous
+	aller générer le trafic <span class="code">TCP</span> et <span class="code">UDP</span> suivant:
+	<ul>
+		<li>A tps = 0.0 : 3000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 1 minute à l'aide du
+		protocole tcp.</li>
+		<li>A tps = 15.0 : 3000 paquets par seconde d'une taille de 1024
+		octets de <span class="code">192.168.2.4</span> vers <span class="code">192.168.1.1</span> pendant 30s.</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Nous allons faire une gestion de trafic à l'aide du gestionnaire
+	de files d'attente <span class="code">HTB</span>.</p>
+	<ul>
+		<li>Créer la classes 1:1 avec une bande passante de 10mbit/s</li>
+		<li>Créer les classes 1:10, 1:20 avec une bande passante
+		respective de 9mbit/s et 1mbit/s</li>
+		<li>Créer un filtre de façon à envoyer le trafic tcp à
+		destination de l'adresse <span class="code">192.168.1.1</span> vers la
+		classe <span class="code">1:10</span></li>
+		<li>Créer un filtre de façon à envoyer le trafic udp à
+		destination de l'adresse <span class="code">192.168.1.1</span> vers la
+		classe <span class="code">1:20</span></li>
+		<li>Attacher un gestionnaire de files d'attente <span class="code">pfifo</span> à chacune de ces classes</li>
+	</ul>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Modifier le réglage du gestionnaire de files d'attente
+	précédent, en créant les classes 1:10, 1:20 avec une bande passante
+	respective de 5mbit/s et 5mbit/s</p>
+	<p>Afficher la courbe du trafic généré.</p>
+	<p>Ré-initialiser la gestion de trafic.</p>
+	</li>
+	<li>Pour terminer nous allons configurer notre routeur pour une
+	utilisation optimale du réseau. Cela signifie :
+	<ul>
+		<li>Réduire au maximum le délai pour les applications
+		interactives <span class="code">ssh</span>, <span class="code">telnet</span></li>
+		<li>Classifier les applications (prioritaire, non prioritaire)</li>
+		<li>En imaginant que la machine <span class="code">192.168.1.1</span>
+		soit le réseau WAN, nous allons réduire le débit en sortie (upload) à
+		220 kbit/s</li>
+	</ul>
+	<p>Les étapes que vous allez suivre pour la mise en oeuvre sont les
+	suivantes :</p>
+	<ol>
+		<li>Initialisation du gestionnaire de files d'attente</li>
+		<li>Ajouter un gestionnaire de files d'attente à la racine <span class="code">HTB</span> avec l'envoi par défaut vers la classe la
+		moins prioritaire</li>
+		<li>Ajouter une classe principale avec une bande passante de 220
+		kbit/s</li>
+		<li>Ajouter 3 classes avec un débit respectif de 220 kbit/s,
+		198kbit/s et 176kbit/s</li>
+		<li>Pour chacune des classes attacher un gestionnaire de files
+		d'attente <span class="code">sfq</span></li>
+		<li>Les règles de filtrage sont les suivantes :
+		<table border="1">
+			<tbody><tr>
+				<th>Type de paquet</th>
+				<th>priorité</th>
+			</tr>
+			<tr>
+				<td>paquets du protocole ssh</td>
+				<td>haute priorité</td>
+			</tr>
+			<tr>
+				<td>paquets du protocole ICMP</td>
+				<td>haute priorité</td>
+			</tr>
+			<tr>
+				<td>paquets ACK (taille &lt; 64 octets avec le bit ACK valide)</td>
+				<td>haute priorité</td>
+			</tr>
+			<tr>
+				<td>paquets du protocole ftp (données)</td>
+				<td>basse priorité</td>
+			</tr>
+			<tr>
+				<td>paquets du protocole de messagerie instantanée (port 1863)</td>
+				<td>basse priorité</td>
+			</tr>
+			<tr>
+				<td>paquets à destination de la machine <span class="code">192.168.1.100</span></td>
+				<td>basse priorité</td>
+			</tr>
+			<tr>
+				<td>paquets à destination des autres machines</td>
+				<td>moyenne priorité</td>
+			</tr>
+		</tbody></table>
+		</li>
+
+	</ol>
+	</li>
+</ol>
+</div>
+<div id="footer">
+<p class="left">IUT Béthune - Département R&amp;T</p>
+<p class="centre">Date de dernière modification : 11
+Septembre 2007</p>
+<p class="right">© Fred Hémery</p>
+<hr>
+</div>
+</div>
+
+</body></html>
