@@ -1,0 +1,123 @@
+                    Administration systeme - Projet 2 
+------------------------------------------------------------------------------
+
+Pour votre second projet vous allez devoir manipuler les partitions et les
+outils de sauvegardes.
+
+SUJET
+-----
+
+* Créez 2 nouveaux disque de 1Go.
+
+* Créez, formatez et montez les partitions suivantes sur le premier disque de
+  1Go :
+
+  * 1 partition de 500 Mo pour stocker les comptes des utilisateurs (/home)
+
+  * 1 partition de 500 Mo pour stocker les bases de données Postgresql
+
+* Créez une nouvelle machine qui servira à héberger vos sauvegardes.
+
+* Créez, formatez et monter une seule partition sur le second disque de 1Go
+  sur cette machine de sauvegarde. Ce disque sera monté sur le répertoire
+  /srv.
+
+Pour tout cela vous allez devoir utiliser :
+
+* des outils de partitionnement (fdisk, cfdisk, sfdisk ou parted)
+
+* des outils de formatage (mkfs)
+
+* des outils de (de)montage (mount, umount, /etc/fstab)
+
+Vous allez ensuite devoir écrire un script de sauvegarde incrémental (chaque
+sauvegarde ne copie sur la machine de sauvegarde que les données modifiées
+depuis la dernière sauvegarde).
+
+Ce script doit permettre, sur la machine de sauvegarde, de donner accès
+facilement aux données de toutes les sauvegardes précédentes :
+
+  * Les données sauvegardées sont stockées dans /srv/backup. Il s'agit de
+    sauvegarder au moins toutes les données utilisateurs de la machine de
+    développement (/home).
+
+  * Ce répertoire doit être monté en lecture seule (sauf peut-être quand votre
+    script de sauvegarde est en action).
+
+  * Les données des trois dernières sauvegardes doivent être accessibles dans
+    les répertoires :
+
+    * /srv/backup/0
+    * /srv/backup/1
+    * /srv/backup/2
+
+  * Les données sont sauvegardées dans une hiérarchie semblable à la
+    hiérarchie de départ.
+
+    Par exemple /home/hauspie/toto/monfichier.txt doit être accessible dans :
+      * /srv/backup/0/home/hauspie/toto/monfichier.txt
+      * /srv/backup/1/home/hauspie/toto/monfichier.txt
+      * /srv/backup/2/home/hauspie/toto/monfichier.txt
+
+    Chacun de ces fichiers correspond à l'état du fichier lors de la dernière
+    sauvegarde (0), l'avant-dernière (1) et celle d'avant (2).
+
+Ce script de sauvegarde doit être exécuté régulièrement (toutes les 5 minutes
+par exemple) sans intervention humaine.
+
+REMARQUES
+---------
+
+* Penchez-vous *activement* sur les documentations avant de faire quoique ce
+  soit :-)
+
+* Il faut que votre commande puisse fonctionner SANS INTERACTION avec
+  l'utilisateur.
+
+* Essayez d'abord de mettre en place la sauvegarde en montant le disque de
+  sauvegarde directement sur la machine de développement. Une fois que votre
+  script est opérationnel, modifiez le pour que la sauvegarde se fasse sur la
+  machine distante (machine de sauvegarde).
+
+DOCUMENTATIONS
+--------------
+
+* http://www.mikerubel.org/computers/rsync_snapshots/index.html
+
+* fdisk (8) (voir aussi cfdisk, parted, etc)
+
+* mkfs(8)
+
+* mount(8)
+
+* fstab(5)
+
+* rsync(1)
+
+* cp(1)
+
+* scp(1), ssh(1)
+
+* cron(1), crontab(1), crontab(5)
+
+COMPTE-RENDU
+------------
+
+* Faites un compte-rendu en html que vous rendrez via le dépot moodle.
+
+* Nommez ce fichier projet2.html.
+
+* Le dépôt moodle devra être une archive contenant le compte rendu ainsi
+  que les sources de votre/vos scripts.
+
+* Expliquez, documentez, justifiez et argumentez vos choix en terme de :
+
+  + fonctionnement des sauvegardes/restauration
+
+  + vérification (ou non) des données
+
+* Enumerez et expliquez également les problèmes rencontrées lors de
+  l'installation
+
+------------------------------------------------------------------------------
+

@@ -1,0 +1,157 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+	<div id="index">
+		<h2>Index</h2>
+		<ul>
+			<li><a href="#choices">Explications, choix, etc ...</a></li>
+			<li><a href="#add">Ajout d'utilisateurs</a></li>
+			<li><a href="#del">Suppression d'utilisateurs</a></li>
+			<li><a href="#edit">Modification d'utilisateurs</a></li>
+		</ul>
+	</div>
+	<br /><br /><hr />
+
+
+
+
+	<div id="add">
+		<h1>Ajout d'utilisateurs</h1>
+		<p>
+			Pour ajouter des utilisateurs, créer un fichier et y inscrire les utilisateurs à ajouter (1 par ligne), sous la forme :<br />
+			<em>nom;prenom</em><br /><br />
+			Ensuite, lancer le script <strong>adduser_admin.pl</strong> avec la commande :<br />
+			<code>perl adduser_admin.pl [-n] -f [fichier_input] [-o fichier_log] [-s type_shell] [-m]</code><br /><br />
+			<code>
+				Options :<br />
+				=======<br />
+				<ul>
+				<li>-h | ? | --help<br />
+				  --> Print help</li><br />
+				<li>-n | --dry-run<br />
+				  --> pre-visualize result of command, without executing it</li><br />
+				<li>-m | --manual-edit<br />
+				  --> Files '/etc/passwd', '/etc/shadow' & '/etc/group' will be modified 'manually'</li><br />
+				<li>-f | --input-file<br />
+				  --> File containing names, needed to create all accounts</li><br />
+				<li>-o | --output-file<br />
+				  --> Log file containing all created accounts information</li><br />
+				<li>-s | --shell-type<br />
+				  --> Define shell to use when the user logs in</li><br />
+				</ul>
+			</code>
+			<code>
+				Par défaut :<br />
+				==========<br />
+				<ul>
+					<li>-s /bin/bash</li>
+					<li>-o adduser.log</li>
+				</ul>
+			</code><br />
+		</p>
+	</div><hr />
+	
+	
+	
+	
+	<div id="del">
+		<h1>Suppression d'utilisateurs</h1>
+		<p>
+			Pour supprimer des utilisateurs, créer un fichier et y inscrire les login des utilisateurs à ajouter (1 par ligne) :<br />
+			<em>login</em><br /><br />
+			Ensuite, lancer le script <strong>deluser_admin.pl</strong> avec la commande :<br />
+			<code>perl deluser_admin.pl [-n] -f [fichier_input] [-o fichier_log] [-m]</code><br /><br />
+			<code>
+				Options :<br />
+				=======<br />
+				<ul>
+				<li>-h | ? | --help<br />
+				  --> Print help</li><br />
+				<li>-n | --dry-run<br />
+				  --> pre-visualize result of command, without executing it</li><br />
+				<li>-m | --manual-edit<br />
+				  --> Files '/etc/passwd', '/etc/shadow' & '/etc/group' will be modified 'manually'</li><br />
+				<li>-f | --input-file<br />
+				  --> File containing logins to delete</li><br />
+				<li>-o | --output-file<br />
+				  --> Log file containing all deleted accounts information</li><br />
+				</ul>
+			</code>
+			<code>
+				Par défaut :<br />
+				==========<br />
+				<ul>
+					<li>-o deluser.log</li>
+				</ul>
+			</code><br />
+		</p>
+	</div><hr />
+	
+	
+	
+	
+	<div id="edit">
+		<h1>Modifications d'utilisateurs</h1>
+		<p>
+			Pour modifier des utilisateurs, créer un fichier et y inscrire les utilisateurs à modifier (1 par ligne) sous la forme :<br />
+			<em>login;nouveau_password;nouveau_/home;nouveau_shell</em><br />
+			(Rem. : tous les champs peuvent rester vides, sauf 'login')<br /><br />
+			Ensuite, lancer le script <strong>usermod_admin.pl</strong> avec la commande :<br />
+			<code>perl usermod_admin.pl [-n] -f [fichier_input] [-o fichier_log] [-m]</code><br /><br />
+			<code>
+				Options :<br />
+				=======<br />
+				<ul>
+				<li>-h | ? | --help<br />
+				  --> Print help</li><br />
+				<li>-n | --dry-run<br />
+				  --> pre-visualize result of command, without executing it</li><br />
+				<li>-m | --manual-edit<br />
+				  --> Files '/etc/passwd', '/etc/shadow' & '/etc/group' will be modified 'manually'</li><br />
+				<li>-f | --input-file<br />
+				  --> File containing users to modify</li><br />
+				<li>-o | --output-file<br />
+				  --> Log file containing all modified accounts information</li><br />
+				</ul>
+			</code>
+			<code>
+				Par défaut :<br />
+				==========<br />
+				<ul>
+					<li>-o usermod.log</li>
+				</ul>
+			</code><br />
+		</p>
+	</div><hr />
+
+
+
+
+	<div id="choices">
+		<h1>Explications, choix, etc ...</h1>
+		<p>
+			<ul>
+				<li>La gestion d'utilisateurs par modification directe des fichiers /etc/passwd, /etc/shadow et /etc/group n'est pas fonctionnelle (manque de temps, j'ai préféré passer directement au TP sur le backup qui me semblait + important</li><br />
+				
+				<li>Toutes les commandes ont une option <code>-h | --help | ?</code> permettant d'afficher ses options</li><br />
+				
+				<li>Les erreurs ne sont pas gérées (sauf exceptions comme l'existence des fichiers par exemple) : la commande d'aide est justement là pour éviter les erreurs. Une erreur 'fatale' entraine l'arrêt du programme</li><br />
+				
+				<li>En cas de malfonctionnement des scripts, on peut toujours se débrouiller avec les fichiers de log pour revenir en arrière. Les fichiers de log contiennent toutes les infos modifiées par les scripts.</li><br />
+				
+				<li>Les logins sont créés sous la forme 'nom' + 'premiere_lettre_prenom'. Si un login existe déjà, le nouveau login sera de la forme 'nom' + 'premiere_lettre_prenom' + '1'. Si celui-ci existe également, le nouveau login sera 'nom' + 'premiere_lettre_prenom' + '2', etc ...</li><br />
+				
+				<li>Le fichier 'config.pl' contient les variables communes aux 3 scripts, càd les emplacements des fichiers 'passwd', 'shadow' et 'group'</li><br />
+				<li>Des fichiers 'input' d'exemple sont fournis dans le dossier 'exemples'</li><br />
+			</ul>
+		</p><br />
+	</div><hr />
+
+
+
+</body>
+</html>

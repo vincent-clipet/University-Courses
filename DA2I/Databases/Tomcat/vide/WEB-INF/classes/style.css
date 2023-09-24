@@ -1,0 +1,22 @@
+table
+{
+	border: 1px black solid;
+	width: 300px;
+}
+
+tr
+{
+	width: 150px;
+}
+
+.color1
+{
+	background-color: #eeeeee;
+	color: #CC0000;
+}
+
+.color2
+{
+	background-color: #cccccc;
+	color: #00CC00;
+}

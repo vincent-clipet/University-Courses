@@ -1,0 +1,80 @@
+###########
+# SERVEUR #
+###########
+
+* Serveur LDAP
+* Authentification des utilisateurs via le service LDAP
+? Insertion utilisateurs dans LDAP
+- Stockage & partage des données des utilisateurs via les services NFS
+- Création des utilisateurs
+- Données utilisateurs dans '/srv/home/login'
+
+* Réseau (192.168.194.10) + domaine + /etc/hosts
+- IPTables : Root-only (SSH + Terminal)
+* Aucune IHM
+- Partition '/srv'
+
+
+
+
+
+##########
+# CLIENT #
+##########
+
+DEBIAN :
+------
+* Installation
+* LibreOffice
+* Langues
+* Thunderbird (Icedove)
+* Firefox
+* Auth. via LDAP (/home/login)
+- NFS
+* Réseau (192.168.194.20) + domaine + /etc/hosts
+- Clavier virtuel + loupe au login
+* 800x600 (Xrandr)
+
+
+
+ARCH :
+----
+- Installation
+- LibreOffice
+- Langues
+- Thunderbird
+- Firefox
+- Auth. via LDAP (/home/login)
+- NFS
+- Réseau (192.168.194.20) + domaine + /etc/hosts
+- Clavier virtuel + loupe au login
+- 800x600
+
+
+
+FreeBSD :
+-------
+- Installation
+- LibreOffice
+- Langues
+- Thunderbird
+- Firefox
+- Auth. via LDAP (/home/login)
+- NFS
+- Réseau (192.168.194.20) + domaine + /etc/hosts
+- Clavier virtuel + loupe au login
+- 800x600
+
+
+
+
+
+
+
+#######
+# ALL #
+#######
+
+- un seul disque virtuel de 10Go par VM
+- DNS ?
+- Logins : aucune MAJ, MDP=login

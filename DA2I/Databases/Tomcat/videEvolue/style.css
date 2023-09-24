@@ -1,0 +1,9 @@
+body	{ background-color : cyan;}
+h1	{ color:red ; text-align:center}table.gauche  { text-align: center }
+td.gauche     { text-align: center }
+div.centre    { text-align: center}
+td.paire      { background-color:yellow}
+td.impaire    { background-color:white}
+th            { background-color:yellow; font-weight:bold}
+
+

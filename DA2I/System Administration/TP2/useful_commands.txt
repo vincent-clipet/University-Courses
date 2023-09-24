@@ -1,0 +1,50 @@
+# PARTED
+# ======
+
+parted
+
+select /dev/sdb
+
+mklabel
+msdos
+
+mkpartfs
+primary
+ext2
+0
+500MB
+
+
+
+
+
+# FSTAB
+# =====
+
+nano /etc/fstab
+/dev/sdb1	/home/users		ext2	defaults	0	0
+/dev/sdb2	/home/postgres  ext2    defaults	0	0
+/dev/sdc1	/srv			ext2	ro	0	0
+
+
+
+
+
+
+# CRONTAB
+# =======
+
+*/5 * * * * script
+
+
+
+
+# BEFORE
+# ======
+mkdir /srv/backup/0 /srv/backup/1 /srv/backup/2
+
+ssh-keygen
+ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host
+
+
+

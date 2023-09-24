@@ -1,0 +1,75 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+import java.sql.*;
+
+@WebServlet("/servlet/Select")
+public class Select extends HttpServlet
+{
+    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
+    {
+	PrintWriter out = res.getWriter();
+	res.setContentType("text/html");
+	Connection con = null;
+	
+	try
+	{
+	    Class.forName(getServletContext().getInitParameter("driver"));
+	    out.println("Driver OK");
+	    
+	    String url = getServletContext().getInitParameter("url");
+	    String user = getServletContext().getInitParameter("user");
+	    String mdp = getServletContext().getInitParameter("mdp");
+	    
+	    con = DriverManager.getConnection(url, user, mdp);
+	    out.println("Connexion OK");
+	    
+	    // Création de l'état
+	    Statement state = con.createStatement();
+	    
+	    // Affichage de la table qu'on veut
+	    String query = "select * from "+req.getParameter("table");
+	    ResultSet rs = state.executeQuery(query);
+	    int nbColumn = rs.getMetaData().getColumnCount();
+	    out.println(" <center> ");
+	    out.println("Nombre de colonnes : "+nbColumn);
+	    out.println("<h1>Ma table : </h1>");
+	    out.println("<table>");
+	    out.println("<form action='/vide/serlvet/Insert' methode='post'>");
+	    while (rs.next())
+	    {
+		out.println("<tr>");
+		for (int i = 1 ; i <= nbColumn ; i++)
+		    out.println("<td>"+rs.getString(i)+"</td>");
+		out.println("<td><a href='Update?table="+req.getParameter("table")+"&cle="+rs.getString(1)+"'>mod</a>");
+		out.println("</td><td><a href=''>del</a></td></tr>");
+		out.println("<tr>");
+		for(int i = 1 ; i <= nbColumn; i++)
+		    out.prinln("<td><input type='text' name="+rs.getMetaData().getColumnName(i)+"></td>");
+		out.prinln("<td><input type='hidden' name="+ req.getParamater("table") +"><input type='submit'></td>");
+		out.prinln("</tr>);
+	    }
+	    out.println("</table>");
+	    out.println(" </center> ");
+	}
+	catch (Exception e)
+	{
+	    out.println(e.getMessage());
+	}
+	finally
+	{
+	    if (con != null)
+	    {
+		try
+		{
+		    con.close();
+		}
+		catch (SQLException e)
+		{
+			out.println(e.getMessage());
+		}
+	    }
+	}
+    }
+}

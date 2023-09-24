@@ -1,0 +1,3 @@
+login1;;;/bin/bash
+login2;newPassword;/home/user02_bis;/bin/bash
+login3;newPassword;;/usr/bin/perl

@@ -1,0 +1,22 @@
+table
+{
+	border: 1px black solid;
+	width: 100px;
+}
+
+td
+{
+	width: 50px;
+}
+
+.color1
+{
+	background-color: #eeeeee;
+	color: #DD0000;
+}
+
+.color2
+{
+	background-color: #bbbbbb;
+	color: #0000DD;
+}

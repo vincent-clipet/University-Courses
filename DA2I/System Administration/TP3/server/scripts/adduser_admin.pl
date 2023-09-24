@@ -1,0 +1,92 @@
+#!/usr/bin/perl
+
+
+sub cleanName
+{
+	my $name = $_[0];
+	chomp($name);
+	$name = lc($name);
+	
+	return $name;
+}
+
+
+
+
+########
+# MAIN #
+########
+
+$_dryrun = 0;
+$_inputFile;
+$_shellType = "/bin/bash";
+$_outputFile = "adduser.log";
+@_usersToAdd;
+$_argsSize = @ARGV;
+
+for (my $i = 0; $i < $_argsSize; $i++)
+{
+	$_dryrun = 1 if ($ARGV[$i] eq "-n" || $ARGV[$i] eq "--dry-run");
+	$_inputFile = $ARGV[$i+1] if ($ARGV[$i] eq "-f" || $ARGV[$i] eq "--input-file");
+}
+
+if (defined($_inputFile))
+{
+	if (-e $_inputFile)
+	{
+		open(FILE, "<$_inputFile");
+		@_usersToAdd = <FILE>;
+		close(FILE);
+	}
+	else
+	{
+		print "file '$_inputFile' does not exist\n";
+		exit 1;
+	}
+}
+else
+{
+	print "no input file specified\n";
+}
+
+open(FILE, ">users.ldif") || die "unknown error";
+open(FILE2, ">logins.txt") || die "unknown error";
+
+my $usersNb = @_usersToAdd;
+
+for (my $i = 0; $i < $usersNb; $i++)
+{
+	$_usersToAdd[$i] = cleanName($_usersToAdd[$i]);
+	
+	my @splitNameSurname = split(';', $_usersToAdd[$i]);
+	my $login = substr($splitNameSurname[0], 0, 1) . $splitNameSurname[1];
+	my $homeDir = $_baseDir . "/$login";
+	my $password = crypt("$login","azerty");
+	my $shell = $_shellType;
+	my $timestamp = time;
+	
+	print(FILE2 "$login\n");
+	
+	if ($_dryrun != 1)
+	{
+        #system("ldapadduser $login $login");
+        #system("ldapsetpasswd $login $password");
+        
+        print(FILE "dn: uid=$login,ou=people,dc=da2i,dc=org\n");
+        print(FILE "uid: $login\n");
+        print(FILE "uidNumber: " . (20000 + $i) . "\n");
+        print(FILE "gidNumber: 20000\n");
+        print(FILE "cn: $splitNameSurname[0] $splitNameSurname[1]\n");
+        print(FILE "sn: $splitNameSurname[0] $splitNameSurname[1]\n");
+        print(FILE "objectClass: top\n");
+        print(FILE "objectClass: person\n");
+        print(FILE "objectClass: posixAccount\n");
+        print(FILE "objectClass: shadowAccount\n");
+        print(FILE "loginShell: /bin/bash\n");
+        print(FILE "homeDirectory: /home/$login\n\n\n");
+    }
+}
+
+close(FILE);
+
+
